@@ -2,8 +2,8 @@
   "labels": [
     {
       "name": "A1",
-      "color": "",
-      "hex": ""
+      "color": "green",
+      "hex": "#008000"
     },
     {
       "name": "value: high",
