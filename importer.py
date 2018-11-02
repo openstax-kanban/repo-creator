@@ -81,8 +81,10 @@ Options:
   -d --dry  Do a dry run without importing issues to GitHub
 
 Examples:
-  imp openstax-kanban team1 
-  imp openstax-kanban team2 --file issues_trello.json
+  imp issues openstax-kanban team1 
+  imp issues openstax-kanban team2 --issues_file trello.json
+  imp labels openstax-kanban team3
+  imp labels openstax-kanban team4 --labels_file labels.json
 
 Notes:
   You will need to set GITHUB_USER and GITHUB_PASSWORD environment variables
