@@ -1,0 +1,64 @@
+{
+  "labels": [
+    {
+      "name": "A1",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "value: high",
+      "color": "orange",
+      "hex": "#FFA500"
+    },
+    {
+      "name": "expedite",
+      "color": "red",
+      "hex": "#FF0000"
+    },
+    {
+      "name": "value: med",
+      "color": "blue",
+      "hex": "#0000FF"
+    },
+    {
+      "name": "value: low",
+      "color": "sky",
+      "hex": "#87CEEB"
+    },
+    {
+      "name": "Analysis 1",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Analysis 2",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Dev 1",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Dev 2",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Dev 3",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Test 1",
+      "color": "green",
+      "hex": "#008000"
+    },
+    {
+      "name": "Test 2",
+      "color": "green",
+      "hex": "#008000"
+    }
+  ]
+}
