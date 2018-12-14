@@ -68,11 +68,29 @@ def import_labels(repo, labels_file, is_dry=False):
             repo.create_label(**label)
 
 
+def import_members(from_organization, to_organization, is_dry=False):
+    print(from_organization)
+    print(to_organization)
+
+    members = [member.login for member in from_organization.members()]
+
+    for member in members[49:]:
+        if is_dry:
+            print(member)
+        else:
+            print('You will only be able to import 50 members in a 24 hour period')
+            try:
+                m = to_organization.add_or_update_membership(member)
+            except github3.exceptions.ForbiddenError:
+                print('You may have hit the 50 invites per day restriction.')
+
+
 def cli():
     cli_docs = """Issue Importer: Import issues into a repository from a json file
 Usage:
   imp issues <organization> <repository_name> [-hi FILE] [--dry]
   imp labels <organization> <repository_name> [-hL FILE] [--dry]
+  imp members <from_organization> <to_organization> [-h] [--dry]
 
 Options:
   -h --help  Show this screen
@@ -108,10 +126,13 @@ Notes:
     # Set necessary variables created from the command line
     organization = arguments['<organization>']
     repo_name = arguments['<repository_name>']
+    from_organization = arguments['<from_organization>']
+    to_organization = arguments['<to_organization>']
     issue_file = Path(arguments['--issues_file'])
     labels_file = Path(arguments['--labels_file'])
     issues = arguments['issues']
     labels = arguments['labels']
+    members = arguments['members']
     is_dry = arguments['--dry']
 
     # Check if the repository exists, if not exit.
@@ -129,6 +150,12 @@ Notes:
     if labels:
         print('Importing labels ...')
         import_labels(repo, labels_file, is_dry)
+
+    if members:
+        print('Importing members ...')
+        from_organization = github.organization(from_organization)
+        to_organization = github.organization(to_organization)
+        import_members(from_organization, to_organization, is_dry)
 
 
 if __name__ == "__main__":
